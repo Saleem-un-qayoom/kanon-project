@@ -1,0 +1,8 @@
+.logo-bar {
+    grid-area: logo-bar;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 1px solid #dbdbdb;
+	border-bottom: 1px solid #dbdbdb;
+  }
