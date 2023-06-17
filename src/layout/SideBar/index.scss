@@ -1,4 +1,10 @@
 .sidebar {
-    grid-area: sidebar;
-    border-right: 1px solid #dbdbdb;
+  grid-area: sidebar;
+  border-right: 1px solid #dbdbdb;
+}
+
+@media screen and (max-width: 1300px) {
+  .sidebar {
+    display: none;
   }
+}

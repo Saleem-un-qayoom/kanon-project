@@ -1,0 +1,30 @@
+.search-bar {
+  &-input-wrapper {
+    position: relative;
+  }
+
+  &-input {
+    font-size: 1.4rem;
+    padding-left: 5rem;
+    border-radius: 0.6rem;
+
+    &::placeholder {
+      font-size: 1.4rem;
+      color: #787486;
+      line-height: 1.4;
+    }
+  }
+
+  &-magnification-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1.3rem;
+  }
+}
+
+// @media screen and (max-width: 1300px) {
+//   .search-bar-input-wrapper {
+//     display: none;
+//   }
+// }
