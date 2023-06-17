@@ -106,6 +106,7 @@ function App() {
             <div className="mr-[1rem] flex h-[4rem] w-[4rem] flex-col items-center justify-center rounded-[0.6rem] bg-[#5030E5]">
               {[...Array(2)].map((_, index) => (
                 <div
+                  key={index}
                   className={`h-[0.6rem] w-[1.5rem] rounded-sm bg-white ${
                     index !== 1 && 'mb-1'
                   }`}
@@ -114,8 +115,11 @@ function App() {
             </div>
 
             <div className=" flex h-[4rem] w-[4rem] flex-wrap items-center rounded-[0.6rem] px-[0.8rem] py-[1rem]">
-              {[...Array(4)].map(() => (
-                <div className="mx-1 h-[0.7rem] w-[0.7rem] rounded-full border border-[#787486]"></div>
+              {[...Array(4)].map((_, index) => (
+                <div
+                  key={index}
+                  className="mx-1 h-[0.7rem] w-[0.7rem] rounded-full border border-[#787486]"
+                ></div>
               ))}
             </div>
           </div>

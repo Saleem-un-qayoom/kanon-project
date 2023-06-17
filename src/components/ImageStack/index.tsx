@@ -24,6 +24,7 @@ function ImageStack({
 
         return (
           <img
+            key={index}
             style={style}
             className={` h-[2.4rem] w-[2.4rem] rounded-full object-cover ${
               index !== 4 ? 'mr-[-1rem]' : ''

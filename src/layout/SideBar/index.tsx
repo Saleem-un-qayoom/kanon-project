@@ -38,6 +38,7 @@ function SideBar({ sidebarExpanded = false }: PropType) {
       <div className="py-[3rem]">
         {sidebarLinks.map(({ title, icon }, index) => (
           <div
+            key={index}
             className={`flex cursor-pointer justify-start rounded-[0.6rem] px-[1rem] py-[1rem] text-[#787486] transition-all duration-100 hover:bg-[#5030e514] hover:text-[#0D062D] ${
               index !== sidebarLinks.length - 1 && 'mb-2'
             }`}
@@ -67,8 +68,9 @@ function SideBar({ sidebarExpanded = false }: PropType) {
           )}
           <img src={addIcon} className="cursor-pointer" alt="" />
         </div>
-        {myProjectsSidebarLink.map(({ color, title }) => (
+        {myProjectsSidebarLink.map(({ color, title }, index) => (
           <div
+            key={index}
             className={`mb-[1rem] flex h-[4rem] items-center  rounded-[0.6rem] px-[1rem] text-[#787486] transition-all duration-100 hover:bg-[#5030e514] hover:text-[#0D062D] ${
               !sidebarExpanded ? 'justify-center' : 'justify-between'
             }`}
@@ -84,8 +86,11 @@ function SideBar({ sidebarExpanded = false }: PropType) {
             </div>
             {sidebarExpanded && (
               <div className="hidden items-center hover:flex">
-                {[...Array(3)].map(() => (
-                  <div className="mx-[0.2rem] inline-block h-[0.3rem] w-[0.3rem] rounded-full bg-black" />
+                {[...Array(3)].map((_, index) => (
+                  <div
+                    key={index}
+                    className="mx-[0.2rem] inline-block h-[0.3rem] w-[0.3rem] rounded-full bg-black"
+                  />
                 ))}
               </div>
             )}
