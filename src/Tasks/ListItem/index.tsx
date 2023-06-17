@@ -1,8 +1,8 @@
-import React from 'react';
+// @ts-ignore
 import { Draggable } from 'react-beautiful-dnd';
-import Badges from '../components/Badges';
-import ThreeDots from '../components/ThreeDots';
-import ImageStack from '../components/ImageStack';
+import Badges from '../../components/Badges';
+import ThreeDots from '../../components/ThreeDots';
+import ImageStack from '../../components/ImageStack';
 import messageIcon from '../assets/svg/messages-icon.svg';
 import folderIcon from '../assets/svg/folder-icon.svg';
 

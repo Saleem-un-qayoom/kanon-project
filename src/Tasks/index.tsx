@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// @ts-ignore
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Column from './Column';
 import { columnData, taskData, columnOrder } from '../constants';

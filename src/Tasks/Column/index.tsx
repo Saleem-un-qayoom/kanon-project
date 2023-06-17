@@ -1,5 +1,6 @@
-import ListItem from './ListItem';
+// @ts-ignore
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import ListItem from '../ListItem';
 
 const Column = ({ tasks, column, index }) => {
   let bgStyle = { background: column.color };
@@ -26,7 +27,7 @@ const Column = ({ tasks, column, index }) => {
           </div>
           <div className="my-[2rem] h-[0.3rem] rounded-full " style={bgStyle} />
           <Droppable droppableId={column.id} type="task">
-            {(provided, snapshot) => (
+            {provided => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {tasks.length ? (
                   tasks.map((task, index) => (
