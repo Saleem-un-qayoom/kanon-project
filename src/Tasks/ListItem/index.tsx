@@ -5,12 +5,12 @@ import ThreeDots from '../../components/ThreeDots';
 import ImageStack from '../../components/ImageStack';
 import messageIcon from '../../assets/svg/messages-icon.svg';
 import folderIcon from '../../assets/svg/folder-icon.svg';
-import { ColumnType, TaskType } from '../../interfaces';
+import { TaskType } from '../../interfaces';
 
 interface PropType {
   task: TaskType;
   index: number;
-  columnTitle: 'low' | 'high' | 'completed';
+  columnTitle: string;
   length: number;
 }
 
