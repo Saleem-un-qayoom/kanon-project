@@ -1,6 +1,6 @@
 export interface TaskType {
   id: string;
-  priority: string;
+  priority: 'low' | 'high' | 'completed';
   peoples: string[];
   comments: number;
   files: number;
