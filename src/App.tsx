@@ -38,28 +38,34 @@ function App() {
         {/*  */}
         <div className="mb-[4rem] flex items-center justify-between  sm:flex-col 700px:flex-row">
           <div className="flex items-center">
-            {headingEditMode ? (
-              <input
-                ref={inputRef}
-                type="text"
-                className="max-w-[25rem] text-[4.6rem]"
-                value={heading}
-                onBlur={() =>
-                  setState(prevData => ({
-                    ...prevData,
-                    headingEditMode: false,
-                  }))
-                }
-                onChange={({ target }) => {
-                  setState(prevData => ({
-                    ...prevData,
-                    heading: target.value,
-                  }));
-                }}
-              />
-            ) : (
-              <h1 className="text-[4.6rem] font-semibold">{heading}</h1>
-            )}
+            <input
+              ref={inputRef}
+              autoFocus={true}
+              type="text"
+              className={`max-w-[25rem] text-[4.6rem] ${
+                !headingEditMode && 'h-0 w-0'
+              }`}
+              value={heading}
+              onBlur={() =>
+                setState(prevData => ({
+                  ...prevData,
+                  headingEditMode: false,
+                }))
+              }
+              onChange={({ target }) => {
+                setState(prevData => ({
+                  ...prevData,
+                  heading: target.value,
+                }));
+              }}
+            />
+            <h1
+              className={`text-[4.6rem] font-semibold ${
+                headingEditMode && 'hidden'
+              }`}
+            >
+              {heading}
+            </h1>
             <img
               src={editIcon}
               className="mx-[1.5rem] cursor-pointer"

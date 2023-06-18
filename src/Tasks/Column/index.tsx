@@ -31,7 +31,12 @@ const Column = ({ tasks, column, index }) => {
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {tasks.length ? (
                   tasks.map((task, index) => (
-                    <ListItem key={task.id} task={task} index={index} />
+                    <ListItem
+                      key={task.id}
+                      task={task}
+                      index={index}
+                      columnTitle={column.title}
+                    />
                   ))
                 ) : (
                   <h1 className="text-center text-[2rem]">No Tasks!</h1>

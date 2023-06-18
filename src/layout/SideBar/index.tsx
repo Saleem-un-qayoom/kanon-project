@@ -8,6 +8,7 @@ import settingsIcon from '../../assets/svg/setting-icon.svg';
 import addIcon from '../../assets/svg/add-icon.svg';
 import bulbGlowBg from '../../assets/svg/bulb-glow-bg-icon.svg';
 import bulbGIcon from '../../assets/svg/bulb-icon.svg';
+import { useState } from 'react';
 
 const sidebarLinks = [
   {
@@ -31,7 +32,14 @@ interface PropType {
   sidebarExpanded: boolean;
 }
 
+const initialState = {
+  selectedMyProjects: myProjectsSidebarLink[0].title,
+  selectedSidebar: sidebarLinks[0].title,
+};
+
 function SideBar({ sidebarExpanded = false }: PropType) {
+  const [{ selectedMyProjects, selectedSidebar }, setState] =
+    useState(initialState);
   return (
     <div className="sidebar px-[1rem]">
       {/* SIDEBAR LINK SECTION */}
@@ -41,7 +49,10 @@ function SideBar({ sidebarExpanded = false }: PropType) {
             key={index}
             className={`flex cursor-pointer justify-start rounded-[0.6rem] px-[1rem] py-[1rem] text-[#787486] transition-all duration-100 hover:bg-[#5030e514] hover:text-[#0D062D] ${
               index !== sidebarLinks.length - 1 && 'mb-2'
-            }`}
+            } ${selectedSidebar === title ? 'bg-[#5030e514]' : ''}`}
+            onClick={() =>
+              setState(prevData => ({ ...prevData, selectedSidebar: title }))
+            }
           >
             <img className="h-[2.4rem] w-[2.4rem]" src={icon} alt="" />
             {sidebarExpanded && (
@@ -73,7 +84,10 @@ function SideBar({ sidebarExpanded = false }: PropType) {
             key={index}
             className={`mb-[1rem] flex h-[4rem] items-center  rounded-[0.6rem] px-[1rem] text-[#787486] transition-all duration-100 hover:bg-[#5030e514] hover:text-[#0D062D] ${
               !sidebarExpanded ? 'justify-center' : 'justify-between'
-            }`}
+            } ${selectedMyProjects === title ? 'bg-[#5030e514]' : ''}`}
+            onClick={() =>
+              setState(prevData => ({ ...prevData, selectedMyProjects: title }))
+            }
           >
             <div className="flex items-center">
               <span

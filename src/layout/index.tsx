@@ -10,7 +10,7 @@ interface Props {
 }
 
 const initialState = {
-  sidebarExpanded: false,
+  sidebarExpanded: true,
 };
 
 function Layout({ children }: Props) {

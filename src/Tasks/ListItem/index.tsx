@@ -6,7 +6,7 @@ import ImageStack from '../../components/ImageStack';
 import messageIcon from '../../assets/svg/messages-icon.svg';
 import folderIcon from '../../assets/svg/folder-icon.svg';
 
-const ListItem = ({ task, index }) => {
+const ListItem = ({ task, index, columnTitle }) => {
   return (
     <Draggable draggableId={task.id} index={index} type="task">
       {(provided, snapshot) => (
@@ -18,7 +18,9 @@ const ListItem = ({ task, index }) => {
           isDragging={snapshot.isDragging}
         >
           <div className="flex items-center justify-between">
-            <Badges type={task.priority} />
+            <Badges
+              type={columnTitle === 'Done' ? 'completed' : task.priority}
+            />
             <ThreeDots />
           </div>
           <h1 className="my-[0.6rem] text-[1.8rem] font-semibold leading-[2.2rem] text-[#0D062D]">
