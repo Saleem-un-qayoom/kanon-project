@@ -5,13 +5,23 @@ import ThreeDots from '../../components/ThreeDots';
 import ImageStack from '../../components/ImageStack';
 import messageIcon from '../../assets/svg/messages-icon.svg';
 import folderIcon from '../../assets/svg/folder-icon.svg';
+import { TaskType } from '../../interfaces';
 
-const ListItem = ({ task, index, columnTitle }) => {
+interface PropType {
+  task: TaskType;
+  index: number;
+  columnTitle: string;
+  length: number;
+}
+
+const ListItem = ({ task, index, columnTitle, length }: PropType) => {
   return (
     <Draggable draggableId={task.id} index={index} type="task">
       {(provided, snapshot) => (
         <div
-          className={`rounded-[1.6rem] bg-white p-[2rem] ${'mb-[2rem]'}`}
+          className={`rounded-[1.6rem] bg-white p-[2rem] ${
+            index !== length - 1 && 'mb-[2rem]'
+          }`}
           ref={provided.innerRef}
           {...provided.dragHandleProps}
           {...provided.draggableProps}

@@ -1,8 +1,15 @@
 // @ts-ignore
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import ListItem from '../ListItem';
+import { ColumnType, TaskType } from '../../interfaces';
 
-const Column = ({ tasks, column, index }) => {
+interface PropType {
+  tasks: TaskType[];
+  column: ColumnType;
+  index: number;
+}
+
+const Column = ({ tasks, column, index }: PropType) => {
   let bgStyle = { background: column.color };
   return (
     <Draggable draggableId={column.id} index={index} type="column">
@@ -35,6 +42,7 @@ const Column = ({ tasks, column, index }) => {
                       key={task.id}
                       task={task}
                       index={index}
+                      length={tasks.length}
                       columnTitle={column.title}
                     />
                   ))
