@@ -11,7 +11,7 @@ export interface TaskType {
 
 export interface ColumnType {
   id: string;
-  title: string;
+  title: 'low' | 'high' | 'completed';
   color: string;
   taskIds: string[];
 }
